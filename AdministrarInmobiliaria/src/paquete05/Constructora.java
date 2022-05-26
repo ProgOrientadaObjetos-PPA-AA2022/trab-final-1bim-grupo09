@@ -10,5 +10,28 @@ package paquete05;
  * @author reroes
  */
 public class Constructora {
+    private String nombre;
+    private String identificacion;
+    
+    public Constructora(String nom, String id) {
+        nombre = nom;
+        identificacion = id;
+    }
+    
+    public void establecerNombreConstructora(String n) {
+        nombre = n;
+    }
+    
+    public void establecerIdentificacionEmpresa(String n) {
+        identificacion = n;
+    }
+    
+    public String obtenerNombreConstructora() {
+        return nombre;
+    }
+    
+    public String obtenerIdentificacionConstructora() {
+        return identificacion;
+    }
     
 }
