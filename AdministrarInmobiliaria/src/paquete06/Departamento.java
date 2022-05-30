@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package paquete06;
+import java.io.Serializable;
 import paquete02.Propietario;
 import paquete03.Barrio;
 import paquete04.Ciudad;
@@ -13,7 +14,7 @@ import paquete05.Constructora;
  *
  * @author reroes
  */
-public class Departamento {
+public class Departamento implements Serializable{
     private Propietario propietario;
     private double precioM2;
     private double numeroMetros;
