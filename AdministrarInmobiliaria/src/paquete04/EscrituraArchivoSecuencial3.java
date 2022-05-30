@@ -2,20 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package paquete02;
+package paquete04;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class EscrituraArchivoSecuencial {
+public class EscrituraArchivoSecuencial3 {
 
     private String nombreArchivo;
     private ObjectOutputStream salida;
-    private Propietario registro;
-    private ArrayList<Propietario> lista;
+    private Ciudad registro;
+    private ArrayList<Ciudad> lista;
 
-    public EscrituraArchivoSecuencial(String nombreArc) {
+    public EscrituraArchivoSecuencial3(String nombreArc) {
         nombreArchivo = nombreArc;
         establecerLista();
         try
@@ -38,7 +39,7 @@ public class EscrituraArchivoSecuencial {
         nombreArchivo = n;
     }
     // agrega registros al archivo
-    public void establecerRegistro(Propietario p) {
+    public void establecerRegistro(Ciudad p) {
         registro = p;
     }
 
@@ -50,16 +51,16 @@ public class EscrituraArchivoSecuencial {
         }
     }
     public void establecerLista() {
-        LecturaArchivoSecuencial l = new LecturaArchivoSecuencial(obtenerNombreArchivo());
-        l.establecerListaPropietarios();
-        lista = l.obtenerListaPropietarios();
+        LecturaArchivoSecuencial3 l = new LecturaArchivoSecuencial3(obtenerNombreArchivo());
+        l.establecerListaCiudades();
+        lista = l.obtenerListaCiudades();
     }
 
     public String obtenerNombreArchivo(){
         return nombreArchivo;
     }
     
-    public ArrayList<Propietario> obtenerLista() {
+    public ArrayList<Ciudad> obtenerLista() {
         return lista;
     }
 
