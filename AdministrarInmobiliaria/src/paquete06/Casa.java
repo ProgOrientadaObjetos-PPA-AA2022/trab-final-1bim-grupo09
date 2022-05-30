@@ -34,6 +34,12 @@ public class Casa implements Serializable{
        constructora = cons;
     }
     
+    public Casa(double pM2, double numeroMetros, int numeroCuartos){
+       precioM2 = pM2;
+       numMetros = numeroMetros;
+       numCuartos = numeroCuartos;
+    }
+    
     public void establecerPropietario (Propietario n) {
         propietario = n;
     }
