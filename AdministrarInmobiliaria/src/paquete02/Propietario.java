@@ -21,7 +21,7 @@ public class Propietario implements Serializable{
         apellidos = ape;
         identificacion = id;
     }
-    
+
     public void establecerNombres(String n) {
         nombres = n;
     }
@@ -45,6 +45,5 @@ public class Propietario implements Serializable{
     public String obtenerIdentificacion(){
         return identificacion;
     }
-    
     
 }

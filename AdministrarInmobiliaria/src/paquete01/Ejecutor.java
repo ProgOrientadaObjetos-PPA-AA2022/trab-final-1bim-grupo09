@@ -31,7 +31,7 @@ public class Ejecutor {
         String nombreArchivo1 = "datos/barrios.data";
         String nombreArchivo3= "datos/ciudades.data";
         String nombreArchivo2 = "datos/constructoras.data";
-         String nombreArchivo5 = "datos/departamentos.data";
+        String nombreArchivo5 = "datos/departamentos.data";
         
         System.out.println("INMOBILIARIA JUAN-CARLOS");
         System.out.println("-------------------------");
@@ -154,54 +154,53 @@ public class Ejecutor {
                             Casa ca = new Casa(precioM2, numeroMetro, numeroCua);
                             ca.establecerCostoFinal();
                             
+                            System.out.println("");
                             try {
-                               Casa casa_buscar;
                             LecturaArchivoSecuencial lecturaProp = new LecturaArchivoSecuencial(nombreArchivo);
                             lecturaProp.establecerIdentificador(idCa_buscar);
                             lecturaProp.establecerPropietarioBuscado();
                             idCa_buscar = lecturaProp.obtenerPropietarioBuscado().obtenerNombres();
-                            if(idCa_buscar!=null){
-                                System.out.print("\n" + idCa_buscar + " - ");
-                            }
                             } catch(Exception e){
-                                System.out.println("\nPropietario no encontrado\n");
+                                System.out.println("Propietario no encontrado");
                             }
                             try {
-                               Casa casa_buscar1;
                             LecturaArchivoSecuencial1 lecturaProp1 = new LecturaArchivoSecuencial1(nombreArchivo1);
                             lecturaProp1.establecerIdentificador(nomBaCa_buscar);
                             lecturaProp1.establecerBarrioBuscado();
                             nomBaCa_buscar = lecturaProp1.obtenerBarrioBuscado().obtenerNombreBarrio();
-                            if(nomBaCa_buscar!=null){
-                                System.out.print(nomBaCa_buscar + " - ");
-                            }
                             } catch(Exception e){
-                                System.out.println("\nBarrio no encontrado\n");
+                                System.out.println("Barrio no encontrado");
                             }
                             try {
-                               Casa casa_buscar2;
                             LecturaArchivoSecuencial3 lecturaProp2 = new LecturaArchivoSecuencial3(nombreArchivo3);
                             lecturaProp2.establecerIdentificador(nomCiuCa_buscar);
                             lecturaProp2.establecerCiudadBuscado();
                             nomCiuCa_buscar = lecturaProp2.obtenerCiudadBuscado().obtenerNombreCiudad();
-                            if(nomCiuCa_buscar!=null){
-                                System.out.print(nomCiuCa_buscar + " - ");
-                            }
                             } catch(Exception e){
-                                System.out.println("\nCiudad no encontrada\n");
+                                System.out.println("Ciudad no encontrada");
                             }
                             try {
-                               Casa casa_buscar3;
                             LecturaArchivoSecuencial2 lecturaProp3 = new LecturaArchivoSecuencial2(nombreArchivo2);
                             lecturaProp3.establecerIdentificador(consCa_buscar);
                             lecturaProp3.establecerConstructoraBuscado();
                             consCa_buscar = lecturaProp3.obtenerConstructoraBuscado().obtenerNombreConstructora();
+                            } catch(Exception e){
+                                System.out.println("Constructora no encontrada");
+                            }
+                            
+                            if(idCa_buscar!=null){
+                                System.out.print("\n" + idCa_buscar + " - ");
+                            }
+                            if(nomBaCa_buscar!=null){
+                                System.out.print(nomBaCa_buscar + " - ");
+                            }
+                            if(nomCiuCa_buscar!=null){
+                                System.out.print(nomCiuCa_buscar + " - ");
+                            }
                             if(consCa_buscar!=null){
                                 System.out.print(consCa_buscar + " - ");
                             }
-                            } catch(Exception e){
-                                System.out.println("\nConstructora no encontrada\n");
-                            }
+                            
                             System.out.printf("N° Cuartos: %d\n"
                                     + "COSTO FINAL: $%.2f\n",ca.obtenereNumeroCuartos(),
                                     ca.obtenerCostoFinal());
@@ -231,54 +230,53 @@ public class Ejecutor {
                             Departamento dep = new Departamento(valorM2,numMetro,nombreEdi,ubi);
                             dep.establecerCostoFinal();
                             
+                            System.out.println("");
                             try {
-                               Departamento departamento_buscar;
                             LecturaArchivoSecuencial lecturaProp = new LecturaArchivoSecuencial(nombreArchivo);
                             lecturaProp.establecerIdentificador(idDep_buscar);
                             lecturaProp.establecerPropietarioBuscado();
                             idDep_buscar = lecturaProp.obtenerPropietarioBuscado().obtenerNombres();
-                            if(idDep_buscar!=null){
-                                System.out.print("\n" + idDep_buscar + " - ");
-                            }
                             } catch(Exception e){
-                                System.out.println("\nPropietario no encontrado\n");
+                                System.out.println("Propietario no encontrado");
                             }
                             try {
-                               Departamento departamento_buscar1;
                             LecturaArchivoSecuencial1 lecturaProp1 = new LecturaArchivoSecuencial1(nombreArchivo1);
                             lecturaProp1.establecerIdentificador(nomBaDep_buscar);
                             lecturaProp1.establecerBarrioBuscado();
                             nomBaDep_buscar = lecturaProp1.obtenerBarrioBuscado().obtenerNombreBarrio();
-                            if(nomBaDep_buscar!=null){
-                                System.out.print(nomBaDep_buscar + " - ");
-                            }
                             } catch(Exception e){
-                                System.out.println("\nBarrio no encontrado\n");
+                                System.out.println("Barrio no encontrado");
                             }
                             try {
-                               Departamento departamento_buscar2;
                             LecturaArchivoSecuencial3 lecturaProp2 = new LecturaArchivoSecuencial3(nombreArchivo3);
                             lecturaProp2.establecerIdentificador(nomCiuDep_buscar);
                             lecturaProp2.establecerCiudadBuscado();
                             nomCiuDep_buscar = lecturaProp2.obtenerCiudadBuscado().obtenerNombreCiudad();
-                            if(nomCiuDep_buscar!=null){
-                                System.out.print(nomCiuDep_buscar + " - ");
-                            }
                             } catch(Exception e){
-                                System.out.println("\nCiudad no encontrada\n");
+                                System.out.println("Ciudad no encontrada");
                             }
                             try {
-                               Departamento departamento_buscar3;
                             LecturaArchivoSecuencial2 lecturaProp3 = new LecturaArchivoSecuencial2(nombreArchivo2);
                             lecturaProp3.establecerIdentificador(consDep_buscar);
                             lecturaProp3.establecerConstructoraBuscado();
                             consDep_buscar = lecturaProp3.obtenerConstructoraBuscado().obtenerNombreConstructora();
+                            } catch(Exception e){
+                                System.out.println("Constructora no encontrada");
+                            }
+                            
+                            if(idDep_buscar!=null){
+                                System.out.print("\n" + idDep_buscar + " - ");
+                            }
+                            if(nomBaDep_buscar!=null){
+                                System.out.print(nomBaDep_buscar + " - ");
+                            }
+                            if(nomCiuDep_buscar!=null){
+                                System.out.print(nomCiuDep_buscar + " - ");
+                            }
                             if(consDep_buscar!=null){
                                 System.out.print(consDep_buscar + " - ");
                             }
-                            } catch(Exception e){
-                                System.out.println("\nConstructora no encontrada\n");
-                            }
+                            
                             System.out.printf("%s"
                                     + " - %s\n"
                                     + "COSTO FINAL: $%.2f\n",dep.obtenerNombreEdificio(), dep.obtenerUbicacionEdificio(),
