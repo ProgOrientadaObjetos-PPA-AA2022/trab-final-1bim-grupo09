@@ -21,6 +21,11 @@ public class Propietario implements Serializable{
         apellidos = ape;
         identificacion = id;
     }
+    
+    public Propietario(String nom, String ape) {
+        nombres = nom;
+        apellidos = ape;
+    }
 
     public void establecerNombres(String n) {
         nombres = n;

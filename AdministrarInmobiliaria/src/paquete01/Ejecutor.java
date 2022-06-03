@@ -19,6 +19,8 @@ import paquete05.EscrituraArchivoSecuencial2;
 import paquete05.LecturaArchivoSecuencial2;
 import paquete04.EscrituraArchivoSecuencial3;
 import paquete04.LecturaArchivoSecuencial3;
+import paquete06.EscrituraArchivoSecuencial5;
+import paquete06.EscrituraArchivoSecuencial6;
 /**
  *
  * @author reroes
@@ -31,7 +33,8 @@ public class Ejecutor {
         String nombreArchivo1 = "datos/barrios.data";
         String nombreArchivo3= "datos/ciudades.data";
         String nombreArchivo2 = "datos/constructoras.data";
-        String nombreArchivo5 = "datos/departamentos.data";
+        String nombreArchivo5 = "datos/casas.data";
+        String nombreArchivo6= "datos/casas.data";
         
         System.out.println("INMOBILIARIA JUAN-CARLOS");
         System.out.println("-------------------------");
@@ -155,41 +158,62 @@ public class Ejecutor {
                             ca.establecerCostoFinal();
                             
                             System.out.println("");
+                            String idCa_buscar2 = "";
                             try {
                             LecturaArchivoSecuencial lecturaProp = new LecturaArchivoSecuencial(nombreArchivo);
                             lecturaProp.establecerIdentificador(idCa_buscar);
                             lecturaProp.establecerPropietarioBuscado();
                             idCa_buscar = lecturaProp.obtenerPropietarioBuscado().obtenerNombres();
+                            idCa_buscar2 = lecturaProp.obtenerPropietarioBuscado().obtenerApellidos();
+                            
+                            
                             } catch(Exception e){
                                 System.out.println("Propietario no encontrado");
                             }
+                            Propietario pCa = new Propietario(idCa_buscar, idCa_buscar2);
+                            
+                            String nomBaCa_buscar2 = "";
                             try {
                             LecturaArchivoSecuencial1 lecturaProp1 = new LecturaArchivoSecuencial1(nombreArchivo1);
                             lecturaProp1.establecerIdentificador(nomBaCa_buscar);
                             lecturaProp1.establecerBarrioBuscado();
                             nomBaCa_buscar = lecturaProp1.obtenerBarrioBuscado().obtenerNombreBarrio();
+                            nomBaCa_buscar2 = lecturaProp1.obtenerBarrioBuscado().obtenerReferencia();
+                            
+                            
                             } catch(Exception e){
                                 System.out.println("Barrio no encontrado");
                             }
+                            Barrio baCa = new Barrio(nomBaCa_buscar,nomBaCa_buscar2);
+                            
+                            String nomCiuCa_buscar2 = "";
                             try {
                             LecturaArchivoSecuencial3 lecturaProp2 = new LecturaArchivoSecuencial3(nombreArchivo3);
                             lecturaProp2.establecerIdentificador(nomCiuCa_buscar);
                             lecturaProp2.establecerCiudadBuscado();
                             nomCiuCa_buscar = lecturaProp2.obtenerCiudadBuscado().obtenerNombreCiudad();
+                            nomCiuCa_buscar2 = lecturaProp2.obtenerCiudadBuscado().obtenerNombreProvincia();
+                            
                             } catch(Exception e){
                                 System.out.println("Ciudad no encontrada");
                             }
+                            Ciudad ciuCa = new Ciudad(nomCiuCa_buscar, nomCiuCa_buscar2);
+                            
+                            String consCa_buscar2 = "";
                             try {
                             LecturaArchivoSecuencial2 lecturaProp3 = new LecturaArchivoSecuencial2(nombreArchivo2);
                             lecturaProp3.establecerIdentificador(consCa_buscar);
                             lecturaProp3.establecerConstructoraBuscado();
                             consCa_buscar = lecturaProp3.obtenerConstructoraBuscado().obtenerNombreConstructora();
+                            consCa_buscar2 = lecturaProp3.obtenerConstructoraBuscado().obtenerNombreConstructora();
+                            
                             } catch(Exception e){
                                 System.out.println("Constructora no encontrada");
                             }
                             
+                            Constructora csCa = new Constructora(consCa_buscar,consCa_buscar2);
                             if(idCa_buscar!=null){
-                                System.out.print("\n" + idCa_buscar + " - ");
+                                System.out.print("\n" + idCa_buscar + " " + idCa_buscar2 + " - ");
                             }
                             if(nomBaCa_buscar!=null){
                                 System.out.print(nomBaCa_buscar + " - ");
@@ -204,6 +228,13 @@ public class Ejecutor {
                             System.out.printf("N° Cuartos: %d\n"
                                     + "COSTO FINAL: $%.2f\n",ca.obtenereNumeroCuartos(),
                                     ca.obtenerCostoFinal());
+                            
+                            Casa casa = new Casa(pCa, precioM2, numeroMetro, baCa, ciuCa, numeroCua, csCa);
+                            
+                            EscrituraArchivoSecuencial5 archivo5 = new EscrituraArchivoSecuencial5(nombreArchivo5);
+                            archivo5.establecerRegistro(casa);
+                            archivo5.establecerSalida();
+                            archivo5.cerrarArchivo();
                             break;
                         case 6:
                             System.out.println("\nDEPARTAMENTO");
@@ -231,30 +262,46 @@ public class Ejecutor {
                             dep.establecerCostoFinal();
                             
                             System.out.println("");
+                            String idDep_buscar2 = "";
                             try {
                             LecturaArchivoSecuencial lecturaProp = new LecturaArchivoSecuencial(nombreArchivo);
                             lecturaProp.establecerIdentificador(idDep_buscar);
                             lecturaProp.establecerPropietarioBuscado();
                             idDep_buscar = lecturaProp.obtenerPropietarioBuscado().obtenerNombres();
+                            idDep_buscar2 = lecturaProp.obtenerPropietarioBuscado().obtenerApellidos();
                             } catch(Exception e){
                                 System.out.println("Propietario no encontrado");
                             }
+                            
+                            Propietario pDep = new Propietario(idDep_buscar,idDep_buscar2);
+                            
+                            String nomBaDep_buscar2 = "";
                             try {
                             LecturaArchivoSecuencial1 lecturaProp1 = new LecturaArchivoSecuencial1(nombreArchivo1);
                             lecturaProp1.establecerIdentificador(nomBaDep_buscar);
                             lecturaProp1.establecerBarrioBuscado();
                             nomBaDep_buscar = lecturaProp1.obtenerBarrioBuscado().obtenerNombreBarrio();
+                            nomBaDep_buscar2 = lecturaProp1.obtenerBarrioBuscado().obtenerReferencia();
                             } catch(Exception e){
                                 System.out.println("Barrio no encontrado");
                             }
+                            
+                            Barrio baDep = new Barrio(nomBaDep_buscar,nomBaDep_buscar2);
+                            
+                            String nomCiuDep_buscar2 = "";
                             try {
                             LecturaArchivoSecuencial3 lecturaProp2 = new LecturaArchivoSecuencial3(nombreArchivo3);
                             lecturaProp2.establecerIdentificador(nomCiuDep_buscar);
                             lecturaProp2.establecerCiudadBuscado();
                             nomCiuDep_buscar = lecturaProp2.obtenerCiudadBuscado().obtenerNombreCiudad();
+                            nomCiuDep_buscar2 = lecturaProp2.obtenerCiudadBuscado().obtenerNombreProvincia();
                             } catch(Exception e){
                                 System.out.println("Ciudad no encontrada");
                             }
+                            
+                            Ciudad ciuDep = new Ciudad(nomCiuDep_buscar, nomCiuDep_buscar2);
+                            
+                            String consDep_buscar2 = "";
                             try {
                             LecturaArchivoSecuencial2 lecturaProp3 = new LecturaArchivoSecuencial2(nombreArchivo2);
                             lecturaProp3.establecerIdentificador(consDep_buscar);
@@ -264,8 +311,10 @@ public class Ejecutor {
                                 System.out.println("Constructora no encontrada");
                             }
                             
+                            Constructora csDep = new Constructora(consDep_buscar,consDep_buscar2);
+                            
                             if(idDep_buscar!=null){
-                                System.out.print("\n" + idDep_buscar + " - ");
+                                System.out.print("\n" + idDep_buscar + " " + idDep_buscar2 + " - ");
                             }
                             if(nomBaDep_buscar!=null){
                                 System.out.print(nomBaDep_buscar + " - ");
@@ -281,6 +330,12 @@ public class Ejecutor {
                                     + " - %s\n"
                                     + "COSTO FINAL: $%.2f\n",dep.obtenerNombreEdificio(), dep.obtenerUbicacionEdificio(),
                                     dep.obtenerCostoFinal());
+                            
+                            Departamento depa = new Departamento(pDep, valorM2, numMetro, nombreEdi, ubi, baDep, ciuDep, csDep);
+                            EscrituraArchivoSecuencial6 archivo6 = new EscrituraArchivoSecuencial6(nombreArchivo6);
+                            archivo6.establecerRegistro(depa);
+                            archivo6.establecerSalida();
+                            archivo6.cerrarArchivo();
                             break;
                         default :
                             System.out.println("\nOPCION FUERA DE RANGO!!");

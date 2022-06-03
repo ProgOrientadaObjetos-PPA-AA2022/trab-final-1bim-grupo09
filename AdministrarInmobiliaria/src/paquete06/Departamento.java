@@ -34,6 +34,17 @@ public class Departamento implements Serializable{
         ubiDepartamento = ubi;
     }
     
+    public Departamento ( Propietario n,double pM2, double numMetros, String nombre, String ubi, Barrio ba, Ciudad ciu, Constructora cs ) {
+        propietario = n;
+        precioM2 = pM2;
+        numeroMetros = numMetros;
+        nombreEdificio = nombre;
+        ubiDepartamento = ubi;
+        barrio = ba;
+        ciudad = ciu;
+        constructora = cs;
+    }
+    
     public void establecerPropietario(Propietario n) {
         propietario = n;
     }
